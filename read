@@ -1,0 +1,38 @@
+
+fdisk -l
+
+df -h 
+
+fdisk /dev/sdb
+
+n
+
+p
+
+1
+
+enter
+
+enter
+
+t
+
+8e
+
+w
+
+pvcreate /dev/sdb1 
+
+vgdisplay 
+
+vgextend MediaPro-vg /dev/sdb1
+
+pvscan 
+
+lvdisplay
+
+lvextend /dev/MediaPro-vg/root /dev/sdb1
+
+resize2fs /dev/MediaPro-vg/root
+
+df -h
